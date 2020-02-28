@@ -1,0 +1,11 @@
+<ul class="brewList">
+    <% breweries.forEach(function(brewery) { %>
+       <li class="foundBrew">
+         <p>
+            <%= brewery.name %>
+            <%= brewery.address %>
+            <%= brewery.postalCode %>
+         </p>
+       </li>
+     <% }); %>
+     </ul>
