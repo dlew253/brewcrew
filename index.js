@@ -46,6 +46,8 @@ app.get('/', function(req,res){
 });
 app.use('/auth', require('./controllers/auth'));
 app.use('/brewery', isLoggedIn, require('./controllers/brewery'));
+app.use('/profile', isLoggedIn, require('./controllers/profile'));
+app.use('/events', isLoggedIn, require('./controllers/events'));
 
 var server = app.listen(process.env.PORT || 8000);
 

@@ -20,9 +20,26 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'thing'
         }
       }
-    },firstname: DataTypes.STRING, // same as pass
-    lastname: DataTypes.STRING,
-  }, {
+    },
+    firstname:  {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1,99],
+          msg: 'thing'
+        }
+      }
+    },  
+    lastname: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1,99],
+          msg: 'thing'
+        }
+      }
+    },
+  },{ 
     hooks: {
       beforeCreate: (pendingUser, options) => {
         if (pendingUser && pendingUser.password) {
@@ -31,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     }
-  });
+    });
   user.associate = function(models) {
     models.user.belongsToMany(models.brewery, {through: "userBrewery"});
   };

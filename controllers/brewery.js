@@ -6,7 +6,9 @@ const axios = require('axios');
 router.get('/', (req, res) => {
     res.render('brew/get');
 });
-
+router.get('/', (req, res) => {
+  res.render('profile/get');
+});
 
 router.post('/', (req, res) => {
    axios({

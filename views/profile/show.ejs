@@ -1,0 +1,11 @@
+<ul class="userProfile">
+    <% user.forEach(function(user) { %>
+       <li class="showProfile">
+         <p>
+            <%= user.firstname %>
+            <%= user.lastname %>
+            <%= user.city %>
+         </p>
+       </li>
+     <% }); %>
+     </ul>
