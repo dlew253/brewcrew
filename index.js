@@ -14,10 +14,14 @@ const db = require('./models');
 const app = express();
 
 app.set('view engine', 'ejs');
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.use(ejsLayouts);
+
+//app.use("/public", function(req, res, next){
+//  console.log(req.url);
+//  next();
+//});
 
  const sessionStore = new SequelizeStore({
      db: db.sequelize,
