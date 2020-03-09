@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const brewery = sequelize.define('brewery', {
     name: DataTypes.STRING,

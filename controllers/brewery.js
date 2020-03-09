@@ -6,12 +6,11 @@ const axios = require('axios');
 router.get('/', (req, res) => {
     res.render('brew/get');
 });
-router.get('/', (req, res) => {
-  res.render('profile/get');
-});
+//router.get('/', (req, res) => {
+//  res.render('profile/get');
+//});
 
-router.post('/', (req, res) => {
-   axios({
+router.get('/search', (req, res) => { axios({
     method: 'get',
     url:`https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/search?query=${req.body.search}`,
     headers: {"x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
