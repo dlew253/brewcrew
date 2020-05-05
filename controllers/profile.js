@@ -5,16 +5,39 @@ const axios = require('axios');
 
 
 router.get('/', (req, res) => {
-    res.render('profile/get');
-});
-router.post('/', (req, res) => {
-    res.redirect('profile/show');
+  db.user.findAll({
+    where: {id: req.user.id},
+    include: [db.brewery]
+  }).then(([user, created])=>{
+    console.log(user)
+    res.render('/profile/get', {user: user});
+  })
+   
 });
 
-router.get('brewery/show', (req, res) => {
+router.get('/brewery', (req, res) => {
+    db.brewery.findOrCreate({
+      where: {
+        name: req.body.name
+      }, defaults: {
+        address: req.body.address,
+           city: req.body.city
+      }
+    }).then(([brewery, created]) => {
+      if (created) {
+        console.log('Added to favorites');
+        res.redirect('/profile')
+      }else {
+        console.log('User Error, dont click me again');
+        
+     } })
+    })
 
-    res.render('brewery/show')
-});
+
+//router.get('/brewery/show', (req, res) => {
+//
+//    res.render('brewery/show')
+//});
 
 
 module.exports = router;

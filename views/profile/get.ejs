@@ -1,3 +1,19 @@
-<h2>Howdy <%= currentUser.name %></h2>
 
-<a href="/">Home</a>
+<ul class="userProfile">
+
+    <li id="show">
+      <p>
+         <%= user.firstname %>
+         <%= user.lastname %>
+         <%= user.city %>
+      </p>
+    </li>
+  
+  </ul>
+<ul class="brew" id="brew">
+  <h2>Your Faves</h2>
+  <% user.breweries.forEach(function(brewery){ %>
+   <%= brewery.name %>
+
+   <% }); %>
+  </ul> 

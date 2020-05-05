@@ -1,12 +1,21 @@
 <ul class="brewList">
   <% breweries.forEach(function(brewery) { %>
      <li class="foundBrew">
-       <p>
+        <h3>
           <%= brewery.name %>
-          <%= brewery.address %>
+        </h3>
+        <p>  
+          <%= brewery.street %>
           <%= brewery.city %>
-          <%= brewery.postalCode %>
+          <%= brewery.postal_code %>
        </p>
+       <form method="POST" action="/profile" >
+         <input type="hidden" name="name" value="<%=brewery.name%>">
+         <input type="hidden" name="address" value="<%=brewery.street%>">
+         <input type="hidden" name="city" value="<%=brewery.city%>">
+         <input type="hidden" name="postalCode" value="<%= brewery.postal_code %>">
+         <button type="submit" name="favorite" >Add to Favorites</button>
+       </form>
      </li>
    <% }); %>
    </ul>

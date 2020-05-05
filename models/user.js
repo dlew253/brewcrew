@@ -50,8 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     });
   user.associate = function(models) {
-    models.user.belongsToMany(models.brewery, {through: "userBrewery"});
-    models.user.belongsToMany(models.events, {through: "userEvent"});
+    models.user.belongsToMany(models.brewery, {through: "userBreweries"});
   };
   user.prototype.validPassword = function (passwordTyped) {
     return bcrypt.compareSync(passwordTyped, this.password);

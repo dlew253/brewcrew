@@ -15,7 +15,9 @@
     <nav class="container">
         <% if (currentUser) { %>
             <a href="/brewery">Find A Brewery!</a>
+            <p class="inline"> | </p>
             <a href="/events">See Whats Happening</a>
+            <p class="inline"> | </p>
             <a href="/profile">Your Stuff</a>
         <% } else { %> 
             <a href="/auth/login">Returning User</a>

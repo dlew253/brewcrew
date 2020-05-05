@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "brewCrew",
+    "database": "brewcrew",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
@@ -10,7 +10,7 @@
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "brewCrew",
+    "database": "brewcrew",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false

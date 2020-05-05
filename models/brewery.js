@@ -1,6 +1,4 @@
-const bcrypt = require('bcrypt');
 'use strict';
-
 module.exports = (sequelize, DataTypes) => {
   const brewery = sequelize.define('brewery', {
     name: DataTypes.STRING,
@@ -9,8 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     postalCode: DataTypes.STRING
   }, {});
   brewery.associate = function(models) {
-    models.brewery.belongsToMany(models.user, {through: "userBrewery"});
-    models.brewery.hasMany(models.events);
+    models.brewery.belongsToMany(models.user, {through: "userBreweries"});
   };
   return brewery;
 };
